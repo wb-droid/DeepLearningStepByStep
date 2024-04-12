@@ -1,4 +1,4 @@
-# DeepLearningStepByStep
+# Deep Learning Step By Step
 ================
 
 ## Overview
@@ -7,9 +7,11 @@ This is a summary of projects that I developed for study of Deep Learning.
 
 There are many frameworks and libraries out there. Fastai is a good starting point. Huggingface has huge amount of models for use. From scratch projects are very good for learning the fundamentals. 
 
+There are so many ML concepts, designs and models to learn and try. I hope to grasp this revolutionary technology and make use of AI to solve real world problems. 
+
 ## Projects that have been completed
 
-1. `Pet classifier`
+1. <b>`Pet classifier`</b>
 
     This is a fine-tuned resnet that can do simple image classification (cat or dog) task.
     
@@ -20,9 +22,9 @@ There are many frameworks and libraries out there. Fastai is a good starting poi
     The original model definition and training can be found in fastai's ["Saving a Cats v Dogs Model"](https://github.com/fastai/course22/blob/master/02-saving-a-basic-fastai-model.ipynb).
     The method to build a gradio web app on Huggingface Spaces is nicely described in Tanishq's ["Gradio + HuggingFace Spaces: A Tutorial"](https://www.tanishq.ai/blog/posts/2021-11-16-gradio-huggingface.html).
 
-2. `HDB price predictor`
+2. <b>`HDB price predictor`</b>
 
-    There are some very good existing HDB price predictor projects using RandomForests. I tried something different -- training a neural network to predict HDB prices. I only traind with a small portion of old data from 1997-01 to 2020-01 for evaluation. The result is pretty good with mean absolute error of S$14k. For prediction after training period, the mean absolute error is S$20k. When using this model to predict current price at 2024-03, after adjust by Resale Price Index, the predicted price has a bit higher mean absolute error of S$37k.
+    There are some very good existing HDB price predictor projects using RandomForests. I tried something different -- training a neural network to predict HDB prices. I only traind with a small portion of old data from 1997-01 to 2020-01 for evaluation. The result is pretty good with <b>mean absolute error of S$14k</b>. For prediction after training period, the mean absolute error is S$20k. When using this model to predict current price at 2024-03, after adjust by Resale Price Index, the predicted price has a bit higher mean absolute error of S$37k.
 
     Try the model at Huggingface Spaces: [HDB price predictor](https://huggingface.co/spaces/wb-droid/HDB_price_predictor).
 
@@ -34,7 +36,7 @@ There are many frameworks and libraries out there. Fastai is a good starting poi
     There is a very good Exploratory Data Analysis on the HDB data by teyang-lau at https://github.com/teyang-lau/HDB_Resale_Prices. His model was built with Linear Regression and RandomForest.
     Data is from Data.gov.sg.
 
-3. `Stable Diffusion Text Inversion`
+3. <b>`Stable Diffusion Text Inversion`</b>
 
     Stable Diffusion can be fine-tuned to add new concept/style. This is an interesting scheme. 
     I trained Stable Diffusion to add a new token `<monkey-toy>` that represents my son's monkey toy: 
