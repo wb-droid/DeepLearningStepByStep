@@ -19,7 +19,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     References:
 
-    The original model definition and training can be found in fastai's ["Saving a Cats v Dogs Model"](https://github.com/fastai/course22/blob/master/02-saving-a-basic-fastai-model.ipynb).
+    The original model definition and training can be found in fastai's ["Saving a Cats v Dogs Model"](https://github.com/fastai/course22/blob/master/02-saving-a-basic-fastai-model.ipynb).<br>
     The method to build a gradio web app on Huggingface Spaces is nicely described in Tanishq's ["Gradio + HuggingFace Spaces: A Tutorial"](https://www.tanishq.ai/blog/posts/2021-11-16-gradio-huggingface.html).
 
 2. <b>`HDB price predictor`</b>
@@ -32,26 +32,37 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     References:
 
-    This model uses fastai's framework at https://docs.fast.ai/tutorial.tabular.html.
-    There is a very good Exploratory Data Analysis on the HDB data by teyang-lau at https://github.com/teyang-lau/HDB_Resale_Prices. His model was built with Linear Regression and RandomForest.
-    Data is from Data.gov.sg.
+    This model uses [fastai's framework](https://docs.fast.ai/tutorial.tabular.html).<br>
+    There is a very good [Exploratory Data Analysis on the HDB data by teyang-lau](https://github.com/teyang-lau/HDB_Resale_Prices). His model was built with Linear Regression and RandomForest.<br>
+    Data is from [data.gov.sg](https://data.gov.sg).
 
 3. <b>`Stable Diffusion Text Inversion`</b>
 
     Stable Diffusion can be fine-tuned to add new concept/style. This is an interesting scheme. 
     I trained Stable Diffusion to add a new token `<monkey-toy>` that represents my son's monkey toy: 
     
-    <img src="Text_inversion/my_concept/0.jpg" width="324">
+    <img src="Text_inversion/my_concept/0.jpg" width="200">
         
     After that, prompt of `"a <monkey-toy> in space suit"` can generate this: 
     
-    <img src="Text_inversion/generated/003.png" width="324">
+    <img src="Text_inversion/generated/003.png" width="200">
 
     Data, model, training and inference details can be found in this [Jupyter notebook](Text_inversion/sd_textual_inversion_training_mk.ipynb). 
 
     References:
 
-    This model and training code is mainly from Huggingface's notebook at https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/sd_textual_inversion_training.ipynb.
-    Additonal info can be found in https://huggingface.co/docs/diffusers/en/api/loaders/textual_inversion and https://huggingface.co/docs/diffusers/en/using-diffusers/loading_adapters#textual-inversion.
+    This model and training code is mainly from [Huggingface's notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/sd_textual_inversion_training.ipynb).<br>
+    Additonal info can be found in [huggingface](https://huggingface.co/docs/diffusers/en/using-diffusers/loading_adapters#textual-inversion).
 
+4. <b>`Image Captioning`</b>
 
+    Image captioning is more flexible then categorization, and privides more infomation on the objects in the image such as positional data. COCA Model claimed to have have the capability "to directly applicable to image captioning tasks as an encoder-decoder model". I tested the "monkey toy" image  
+    <img src="Text_inversion/my_concept/0.jpg" width="32"> with OpenCLIP and COCA. The generated caption is "a stuffed monkey with a crown on it 's head". Pretty good.
+
+    Model and inference details can be found in this [Jupyter notebook](Image_caption/openCLIP_COCA_image_caption.ipynb). 
+
+    References:
+
+    The code is from this [OpenCLIP's notebook](https://colab.research.google.com/github/mlfoundations/open_clip/blob/master/docs/Interacting_with_open_coca.ipynb). <br>
+    CoCa paper is [here](https://arxiv.org/abs/2205.01917).<br>
+    OpenCLIP repo is [here](https://github.com/mlfoundations/open_clip).
