@@ -57,7 +57,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 4. <b>`Image Captioning`</b>
 
     Image captioning is more flexible then categorization, and privides more infomation on the objects in the image such as positional data. COCA Model claimed to have have the capability "to directly applicable to image captioning tasks as an encoder-decoder model". I tested the "monkey toy" image  
-    <img src="Text_inversion/my_concept/0.jpg" width="32"> with OpenCLIP and COCA. The generated caption is "a stuffed monkey with a crown on it 's head". Pretty good.
+    <img src="Text_inversion/my_concept/0.jpg" width="32"> with OpenCLIP and COCA. The generated caption is `"a stuffed monkey with a crown on it 's head"`. Pretty good.
 
     Model and inference details can be found in this [Jupyter notebook](Image_caption/openCLIP_COCA_image_caption.ipynb). 
 
