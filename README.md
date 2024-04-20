@@ -66,3 +66,28 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     The code is from this [OpenCLIP's notebook](https://colab.research.google.com/github/mlfoundations/open_clip/blob/master/docs/Interacting_with_open_coca.ipynb). <br>
     CoCa paper is [here](https://arxiv.org/abs/2205.01917).<br>
     OpenCLIP repo is [here](https://github.com/mlfoundations/open_clip).
+
+5. <b>`Chinese poem generator`</b>
+
+    NLP Transformer models are very popular. There are many existing implementations and pretrained models. Creating one from scratch is good learning and practise. To make is managable and useful, a Chinese poem generator is the target.
+
+    Model and training details can be found in https://github.com/wb-droid/myGPT/.
+
+    a. A basic MLP model from scratch.
+
+    Data is from https://github.com/Werneror/Poetry.
+
+    First created a Chinese character level tokenizer. Built a simple Model just with token embedding, position embedding and MLP. After training for a while, the follow can be generated.
+
+    `generate('终南')` -- `'终南汞懒飞收。俗始闻夜门。谁常波漫春'`
+    
+    `generate('灵者')` -- `'灵者轩愁。月看曲，贱朱光受，书初去雨'` 
+
+
+    b. A GPT2-like model from scratch.
+
+    Follow the original GPT2 design and "Attention is all you need" paper. Add on top of the above MLP model to have all the additional critical components such as casual self attention, layer norm, dropout, skip connection, etc. After training for a while, the follow can be generated.
+
+    `generate('终南')` -- `'终南岸，水碧绿槐无处色。云雨初寒落月，江风满天。秋景遥，夜深烟暮春。一望青山里，千嶂孤城下，何远近东流。古人不见长空愁，万般心生泪难尽。'`
+    
+    `generate('灵者')` -- `'灵者，寒暑气凝空濛长。风雨如霜月，万顷不闻钟客归。白纻初行尽柳枝，黄花满衣无愁懒。春色，残红芳兰深，一声兮，九陌上，相思君王。'` 
