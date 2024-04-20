@@ -69,7 +69,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
 5. <b>`Chinese poem generator`</b>
 
-    NLP Transformer models are very popular. There are many existing implementations and pretrained models. Creating one from scratch is good learning and practise. To make is managable and useful, a Chinese poem generator is the target.
+    NLP Transformer models are very popular. There are many existing implementations and pretrained models. Creating one from scratch is good learning and practise. To make it managable and useful, a Chinese poem generator is the target.
 
     a. A basic MLP model from scratch.
 
@@ -98,5 +98,5 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     Try it at Huggingface Space: https://huggingface.co/spaces/wb-droid/myGPT.
 
-    <br><img src="myGPT/screenshot/0.jpg" width="320">
-    <br><img src="myGPT/screenshot/1.jpg" width="320">
+    <br><img src="myGPT/screenshot/0.jpg" width="640">
+    <br><img src="myGPT/screenshot/1.jpg" width="640">
