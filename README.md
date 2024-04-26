@@ -9,7 +9,7 @@ There are many frameworks and libraries out there. Fastai is a good starting poi
 
 There are so many ML concepts, designs and models to learn and try. I hope to grasp this revolutionary technology and make use of AI to solve real world problems. 
 
-## New Models from Scratch, and Applications
+## From Scratch Models/Applications
 
 1. <b>`HDB price predictor`</b>
 
@@ -59,6 +59,31 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     <br><img src="myGPT/screenshot/0.jpg" width="640">
     <br><img src="myGPT/screenshot/1.jpg" width="640">
 
+3. <b>`Sentence Embedding, Vector Database and Semantic Search`</b>
+
+    Besides used in semantic search applications, this project is also a good foundation for Retrival Augmented Generation I plan to build later.
+    This is also very similar to CLIP model that performs contrastive training on image and text embedding. 
+
+    a. Build a text embedding model with "BERT + mean pooling". 
+
+    b. Build a contrastive training model following the paper [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks](https://arxiv.org/pdf/1908.10084). Train it to improve semantic search accuracy. 
+    <br><img src="myTextEmbedding/training_model.jpg" width="240">
+
+    c. Then use the trained model to implement a vector database (using data from a few wiki pages, chunk by sentence). Support cosine similarity for similarity search. 
+    
+    When testing with the model untrained, the search is not accurate. 
+    
+    `search_document("what is BERT?")` returns `Research in similarity search is dominated by the inherent problems of searching over complex objects.` `Skip-Thought trains an encoder-decoder structure for the task of neighboring sentences predictions.`
+
+    When testing with the trained model, the search result is improved a lot.
+
+    `search_document("what is BERT?")` returns `In practice however, BERT's sentence embedding with the [CLS] token achieves poor performance, often worse than simply averaging non-contextual word embeddings.` `BERT pioneered an approach involving the use of a dedicated [CLS] token prepended to the beginning of each sentence inputted into the model; the final hidden state vector of this token encodes information about the sentence and can be fine-tuned for use in sentence classification tasks.`
+
+    d. (To do) The model is a bit big. Plan to do some model distillation.
+
+    e. (To do) To build a huggingface space app to demo this model.
+
+    More details on the model, training and inference can be found [here](myTextEmbedding/).
 
 ## Pretrained Models Evaluation/Fine-tuning
 
