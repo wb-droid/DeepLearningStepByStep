@@ -146,4 +146,25 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     Language Models are growing bigger and more capable. My GPU with 6G VRAM cannot run any serious model. Quantization is a good way to reduce model inference cost. 
     The ChatGLM3 model is 12G. After quantization with [chatglm.cpp](https://github.com/li-plus/chatglm.cpp), its size is reduced to 3.4G. 
 
-    The quantized model runs slower on CPU than GPU, but it's reasonably acceptable on my laptop, generating at 10 tokens/s. However, when running on the free huggingface space CPU, it's crawling like a snail. If you have patience, you can try it [here](https://huggingface.co/spaces/wb-droid/ChatGLM3_Quantized).
+    a. The quantized model runs slower on CPU than GPU, but it's reasonably acceptable on my laptop, generating at 10 tokens/s. However, when running on the free huggingface space CPU, it's crawling like a snail. If you have patience, you can try it [here](https://huggingface.co/spaces/wb-droid/ChatGLM3_Quantized).
+
+    b. To improve this further, GPU + CPU scheme can make use of both CPU and GPU to provide a good ballance between speed and memory. First, make [this change to enable GPU/CPU mix](https://github.com/li-plus/chatglm.cpp/issues/218). Then, make [this change if you encouter same issue](https://github.com/li-plus/chatglm.cpp/issues/140). Also need to install [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Then, build and run with below to enjoy much improved speed:
+    
+    ```
+    docker build . --network=host -t chatglm.cpp-cuda \
+    --build-arg BASE_IMAGE=nvidia/cuda:12.2.0-devel-ubuntu20.04 \
+    --build-arg CMAKE_ARGS="-DGGML_CUBLAS=ON"
+    
+    docker run -it --rm --gpus all -v $PWD:/chatglm.cpp/models chatglm.cpp-cuda ./build/bin/main -m models/chatglm-ggml.bin -i
+    ```
+
+    To enable python binding, run the following before load and run the model as usual. Note Gradio in docker need to set server name to expose port -- `demo.queue().launch(share=False, server_name="0.0.0.0")`.
+
+    ```
+    docker run -it --rm --gpus all -v $PWD:/chatglm.cpp/models chatglm.cpp-cuda /bin/bash
+    docker run -p 7860:7860 -it --rm --gpus all -v $PWD:/chatglm.cpp/models chatglm.cpp-cuda /bin/bash
+    python3 -m pip install torch tabulate tqdm transformers accelerate sentencepiece gradio
+    
+    python3.8 cli_demo.py
+    python3.8 web_demo.py    
+    ```
