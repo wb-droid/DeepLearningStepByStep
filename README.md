@@ -73,17 +73,25 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     
     When testing with the model untrained, the search is not accurate. 
     
-    `search_document("what is BERT?")` returns `Research in similarity search is dominated by the inherent problems of searching over complex objects.` `Skip-Thought trains an encoder-decoder structure for the task of neighboring sentences predictions.`
+    `search_document("what is BERT?")` returns `Research in similarity search is dominated by the inherent problems of searching over complex objects.`, etc.
 
     When testing with the trained model, the search result is improved a lot.
 
-    `search_document("what is BERT?")` returns `In practice however, BERT's sentence embedding with the [CLS] token achieves poor performance, often worse than simply averaging non-contextual word embeddings.` `BERT pioneered an approach involving the use of a dedicated [CLS] token prepended to the beginning of each sentence inputted into the model; the final hidden state vector of this token encodes information about the sentence and can be fine-tuned for use in sentence classification tasks.`
-
-    d. (To do) The model is a bit big. Plan to do some model distillation.
-
-    e. (To do) To build a huggingface space app to demo this model.
+    `search_document("what is BERT?")` returns `In practice however, BERT's sentence embedding with the [CLS] token achieves poor performance, often worse than simply averaging non-contextual word embeddings.`, etc.
 
     More details on the model, training and inference can be found [here](myTextEmbedding/).
+
+    d. This model can be made faster and lighter. Embedding dimension reduction can help to reduce embedding storage but does not help model memory. Quantization is already used before on ChatGLM. So, this time I will try model Distillation, which uses the bigger model (teacher) to train a smaller model (student). Ilustrated below.  
+    <br><img src="myTextEmbedding/distillation.png" width="240"> [This diagram source](https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/monolingual-distillation.png) is from sentence-transformers.
+    
+    The student model is built by reducing BertEncoder from 12 BertLayers to 6 layers. And the model size is almost halved from 430MB to 260MB. Training model is implement as the diagram. After training, the student model performs similarly as the teacher, with matching top-2 similarity search result. More details on the models, training and inference can be found [here](./myTextEmbedding/model_distillation.ipynb).
+
+    e. Build a huggingface space app to demo this model. User enterd a concept and a question related to the concept. The app will search wiki for the concept, use the data gathered to build a vector database, then use the question to do semantic search and return the result.
+
+    Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/SentenceEmbedding).
+    <br><img src="./myTextEmbedding/application_example.jpg" width="400">
+
+
 
 ## Pretrained Models Evaluation/Fine-tuning
 
