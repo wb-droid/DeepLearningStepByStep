@@ -90,6 +90,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/SentenceEmbedding).
     <br><img src="./myTextEmbedding/application_example.jpg" width="400">
+    <img src="./myTextEmbedding/application_example2.jpg" width="400">
 
 
 
