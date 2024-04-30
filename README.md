@@ -86,7 +86,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     
     The student model is built by reducing BertEncoder from 12 BertLayers to 6 layers. And the model size is almost halved from 430MB to 260MB. Training model is implement as the diagram. After training, the student model performs similarly as the teacher, with matching top-2 similarity search result. More details on the models, training and inference can be found [here](./myTextEmbedding/model_distillation.ipynb).
 
-    e. Build a huggingface space app to demo this model. User enterd a concept and a question related to the concept. The app will search wiki for the concept, use the data gathered to build a vector database, then use the question to do semantic search and return the result.
+    e. Build a huggingface space app to demo this model. An example vector database is pre-built with concepts searched from wiki, by [this script](./myTextEmbedding/create_vector_table.ipynb). User enters a question related to the concept. The app will use the question to do semantic search in the vector database and return the result.
 
     Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/SentenceEmbedding).
     <br><img src="./myTextEmbedding/application_example.jpg" width="400">
