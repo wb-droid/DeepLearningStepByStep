@@ -30,7 +30,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     NLP Transformer models are very popular. There are many existing implementations and pretrained models. Creating one from scratch is good learning and practise. To make it managable and useful, a Chinese poem generator is the target.
 
-    a. A basic MLP model from scratch.
+    a) A basic MLP model from scratch.
 
     Data is from https://github.com/Werneror/Poetry.
 
@@ -45,7 +45,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     `generate('灵者')` -- `'灵者轩愁。月看曲，贱朱光受，书初去雨'` 
 
 
-    b. A GPT2-like model from scratch.
+    b) A GPT2-like model from scratch.
 
     Follow the original GPT2 design and "Attention is all you need" paper. Add on top of the above MLP model to have all the additional critical components such as casual self attention, layer norm, dropout, skip connection, etc. After training for a while, the following nice poems can be generated.
 
@@ -64,12 +64,12 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     Besides used in semantic search applications, this project is also a good foundation for Retrival Augmented Generation I plan to build later.
     This is also very similar to CLIP model that performs contrastive training on image and text embedding. 
 
-    a. Build a text embedding model with "BERT + mean pooling". 
+    a) Build a text embedding model with "BERT + mean pooling". 
 
-    b. Build a contrastive training model following the paper [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks](https://arxiv.org/pdf/1908.10084). Train it to improve semantic search accuracy. 
+    b) Build a contrastive training model following the paper [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks](https://arxiv.org/pdf/1908.10084). Train it to improve semantic search accuracy. 
     <br><img src="myTextEmbedding/training_model.jpg" width="240">
 
-    c. Then use the trained model to implement a vector database (using data from a few wiki pages, chunk by sentence). Support cosine similarity for similarity search. 
+    c) Then use the trained model to implement a vector database (using data from a few wiki pages, chunk by sentence). Support cosine similarity for similarity search. 
     
     When testing with the model untrained, the search is not accurate. 
     
@@ -81,17 +81,30 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     More details on the model, training and inference can be found [here](myTextEmbedding/).
 
-    d. This model can be made faster and lighter. Embedding dimension reduction can help to reduce embedding storage but does not help model memory. Quantization is already used before on ChatGLM. So, this time I will try model Distillation, which uses the bigger model (teacher) to train a smaller model (student). Ilustrated below.  
+    d) This model can be made faster and lighter. Embedding dimension reduction can help to reduce embedding storage but does not help model memory. Quantization is already used before on ChatGLM. So, this time I will try model Distillation, which uses the bigger model (teacher) to train a smaller model (student). Ilustrated below.  
     <br><img src="myTextEmbedding/distillation.png" width="240"> [This diagram source](https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/monolingual-distillation.png) is from sentence-transformers.
     
     The student model is built by reducing BertEncoder from 12 BertLayers to 6 layers. And the model size is almost halved from 430MB to 260MB. Training model is implement as the diagram. After training, the student model performs similarly as the teacher, with matching top-2 similarity search result. More details on the models, training and inference can be found [here](./myTextEmbedding/model_distillation.ipynb).
 
-    e. Build a huggingface space app to demo this model. An example vector database is pre-built with concepts searched from wiki, by [this script](./myTextEmbedding/create_vector_table.ipynb). User enters a question related to the concept. The app will use the question to do semantic search in the vector database and return the result.
+    e) Build a huggingface space app to demo this model. An example vector database is pre-built with concepts searched from wiki, by [this script](./myTextEmbedding/create_vector_table.ipynb). User enters a question related to the concept. The app will use the question to do semantic search in the vector database and return the result.
 
     Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/SentenceEmbedding).
     <br><img src="./myTextEmbedding/application_example.jpg" width="400">
     <img src="./myTextEmbedding/application_example2.jpg" width="400">
 
+4. <b>`Spelling Tester App`</b>
+
+    I often need to help my son prepare his school spelling test, reading the words/dictations to him multiple time. This is a task better done by AI to save me some time and to have better pronunciation than me. My son can also practise when I'm not around. 
+
+    a) The main component is text-to-voice. I evaluated [bark](https://github.com/suno-ai/bark) first. It's a GPT-style transfomer model similar to the myGPT model I did above. The voice generation procedure and result can be found [here](./SpellingTester/text2voice_bark.ipynb). The generated voice is pretty good. It requires a lot of GPU VRAM resources and take a bit of time to generate. The voice generated is natural but not the studio-quality.
+
+    I also tested [edge-tts](https://github.com/rany2/edge-tts). It uses Microsoft Edge's online text-to-speech service, so the model behind is not clear to me. The voice generation procedure and result can be found [here](./SpellingTester/text2voice_edge.ipynb). The generated voice is of better quality but not as natural. It does not use local resource and generates faster. But it needs internet access, and depends on the Microsoft service which may not be available/free forever. 
+    
+    My son is happy with the mp3 generated as he can pause, rewind or adjust speed in the mp3 player. He now uses it to prepare for the next Chinese spelling test by himself. 
+
+    b) [To do] use OCR to convert spelling list scan image to text, to save effort of typing.    
+
+    c) [To do] create an app to do everying together: image-to-text, text-to-voice, and maybe also compare/spell-check the written words/sentences. 
 
 
 ## Pretrained Models Evaluation/Fine-tuning
