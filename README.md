@@ -102,9 +102,16 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     
     My son is happy with the mp3 generated as he can pause, rewind or adjust speed in the mp3 player. He now uses it to prepare for the next Chinese spelling test by himself. 
 
-    b) [To do] use OCR to convert spelling list scan image to text, to save effort of typing.    
-
-    c) [To do] create an app to do everying together: image-to-text, text-to-voice, and maybe also compare/spell-check the written words/sentences. 
+    b) Next is to use OCR to convert spelling list scan image to text, to save effort of typing. Optical Character Recognition (OCR) is mature with high accuracy. There are many open-source solutions. 
+    
+    I first tested [EasyOCR](https://github.com/JaidedAI/EasyOCR). Its pipeline make use of several models, such as CRAFT for detection, Resnet for feature extraction, LSTM for sequence labeling and CTC for decoding. The detection result has some errors as shown [here](./SpellingTester/img2txt_EasyOCR.ipynb).
+    
+    Next I tested [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR). Its pipeline uses even more [models](https://github.com/PaddlePaddle/PaddleOCR/blob/main/doc/ppocr_v4/ppocrv4_framework.png). The result is much better as shown [here](./SpellingTester/img2txt_paddle.ipynb). All Chinese characters and English letters are recognized correctly. So I will choose PaddleOCR.
+    
+    c) Create an app to do everying together: image-to-text, text-to-voice, and play the generated audio to do mock test. 
+    Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/SpellingTester).    
+    <br><img src="./SpellingTester/app_example_ch.jpg" height="150">
+    <img src="./SpellingTester/app_example_en.jpg" height="150">
 
 
 ## Pretrained Models Evaluation/Fine-tuning
