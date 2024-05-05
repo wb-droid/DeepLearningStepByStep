@@ -197,3 +197,22 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     python3.8 cli_demo.py
     python3.8 web_demo.py    
     ```
+
+6. <b>`Image Captioning with LLaVA`</b>
+
+    [LLaVA (Large Language and Vision Assistant)](https://github.com/haotian-liu/LLaVA) is good at multi-modal chat.   
+    <img src="Text_inversion/my_concept/0.jpg" width="32"><br>
+    I tested the same "monkey toy" image above. The following query 
+    
+    ```
+    image, output = caption_image(f'../0.jpg', 'Describe the image.') 
+    print(output)
+    ``` 
+    generates 
+
+    ```
+    The image features a small stuffed monkey toy with a crown on its head, sitting on a white surface. The monkey toy has a big smile on its face, making it appear cheerful and friendly. The toy is positioned in the center of the image, capturing attention and adding a playful touch to the scene.
+    ``` 
+    
+    Very impressive.
+
