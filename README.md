@@ -135,7 +135,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     Then, the detail of the mistakes and correction is queried by this prompt -- "What is the mistake and what is the correct sentence?"
 
-    c) Create the App to put everything together: image-to-text, text to query LLM to find mistake and get correction. Indeed it can find more mistakes than me. And the suggested correct is better than what I usually come up with. Also, after making corrections, make sure to run through the Corrector again. It may still detect a few extra errors that are more subtle. 
+    c) Create the App to put everything together: image-to-text, text to query LLM to find mistake and get correction. Indeed it can find more mistakes than me. And the suggested corrections are better than what I usually come up with. Also, after making corrections, make sure to run through the Corrector again. It may still detect a few extra errors that are more subtle. 
 
     Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/CompositionCorrector).
     <br><img src="./CompositionCorrector/app_example.jpg" height="300">
