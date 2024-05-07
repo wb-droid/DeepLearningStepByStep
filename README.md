@@ -113,6 +113,33 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     <br><img src="./SpellingTester/app_example_ch.jpg" height="150">
     <img src="./SpellingTester/app_example_en.jpg" height="150">
 
+4. <b>`Composition Corrector App`</b>
+
+    Composition is another area my son needs extra help. But I'm not good at it either. LLM is already very advanced and should do a better job than me. This "Composition Corrector app" is designed to find mistakes, suggest corrections and make improvements. 
+
+    a) LLM setup
+
+    The easier way to use a good LLM in application is to use ChatGPT API. But it's not free and not opensource. 
+
+    Another way is to run LLM like llama and ChatGLM locally. With my small GPU, this is still doable after extra efforts as shown in the "model quantization" section below. 
+
+    But I'm choosing a third way -- Huggingface's Inference API. It's same effect as running pretrained models locally, but it is free, more flexible and easier to maintain. 
+    
+    The app will use the latest and greatest [Llama 3](https://llama.meta.com/) as the language model.
+
+    b) Prompt Engineering
+
+    System prompt is "You are a helpful and honest assistant. Please, respond concisely and truthfully."
+
+    I do a search of error sentence first, with this prompt -- "Only answer Yes or No. Is there grammatical or logical mistake in the sentence:".
+
+    Then, the detail of the mistakes and correction is queried by this prompt -- "What is the mistake and what is the correct sentence?"
+
+    c) Create the App to put everything together: image-to-text, text to query LLM to find mistake and get correction. Indeed it can find more mistakes than me. And the suggested correct is better than what I usually come up with. Also, after making corrections, make sure to run through the Corrector again. It may still detect a few extra errors that are more subtle. 
+
+    Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/CompositionCorrector).
+    <br><img src="./CompositionCorrector/app_example.jpg" height="300">
+
 
 ## Pretrained Models Evaluation/Fine-tuning
 
