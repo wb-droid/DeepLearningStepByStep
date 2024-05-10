@@ -113,7 +113,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     <br><img src="./SpellingTester/app_example_ch.jpg" height="150">
     <img src="./SpellingTester/app_example_en.jpg" height="150">
 
-4. <b>`Composition Corrector App`</b>
+5. <b>`Composition Corrector App`</b>
 
     Composition is another area my son needs extra help. But I'm not good at it either. LLM is already very advanced and should do a better job than me. This "Composition Corrector app" is designed to find mistakes, suggest corrections and make improvements. 
 
@@ -139,6 +139,15 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/CompositionCorrector).
     <br><img src="./CompositionCorrector/app_example.jpg" height="300">
+
+6. <b>`Retrieval Augmented Generation App`</b>
+
+    LLM can learn new concept and do customization with prompt engineering, fine-tuning, and Retrieval Augmented Generation (RAG). RAG can be built with the from-scratch embedding model and vector store I implemented earlier. However, for learning, this time I will use LangChain framework which is more flexible and scalable. 
+
+    For this App, following models are used. VectorStore - FAISS. Embedding - "BAAI/bge-base-en-v1.5". LLM can select mistral or llama. Both query with RAG and without RAG are performed together, and the results are displayed side by side to showcase the great improvement achieved with RAG. 
+
+    Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/RetrievalAugmentedGeneration).
+    <br><img src="./RAG/RAG_example.jpg" height="300">
 
 
 ## Pretrained Models Evaluation/Fine-tuning
