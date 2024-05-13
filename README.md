@@ -149,6 +149,24 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     Try it at Huggingface Space [here](https://huggingface.co/spaces/wb-droid/RetrievalAugmentedGeneration).
     <br><img src="./RAG/RAG_example.jpg" height="300">
 
+7. <b>`Telegram Chat Bot with Local LLM/application`</b>
+
+    Previous developed LLM generation/chat apps are web based. A chat bot in phone app such as Telegram is more accessible and has more options to customize. There are two ways to build such chat bot as shown below. Local LLM/application is easier to deploy. And developer has full control. It's also more secure. On the other hand, online LLM/application is more flexible to use multiple LLMs, and does not require local resource/maintenance. This project will use the first option: Local LLM/application
+    <br><img src="./TelegramBot/architecture.jpg" height="240">
+    
+    Local LLM can be setup similar to my previous projects. But this time, I will use [text-generation-webui](https://github.com/oobabooga/text-generation-webui) for its maturity and features. Use the command below to enable API endpoint, and load a quantized Mistral 7B model.
+
+    `start_wsl.bat --api --model TheBloke_Mistral-7B-Instruct-v0.1-GPTQ`
+    
+    Local chat application can be developed with Telegram API library, such as [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot). For this project, I will use [chatgpt-mirai-qq-bot](https://github.com/lss233/chatgpt-mirai-qq-bot) for it's easy to customize and full of features. With this [config.cfg](./TelegramBot/chatgpt-mirai-qq-bot/config.cfg), and update its `bot_token` with your own Telegram Bot Token (refer to https://core.telegram.org/bots). Then, run the command below.
+
+    `docker run --name mirai-chatgpt-bot -v ./config.cfg:/app/config.cfg --network host lss233/chatgpt-mirai-qq-bot:browser-version`
+
+    Now talk to the Mistral AI with Telegram like you talk to another person.
+    <br><img src="./TelegramBot/screenshot.jpg" height="240">
+
+
+8. <b>`Telegram Chat Bot with Online LLM/Webhook (to do)`</b>
 
 ## Pretrained Models Evaluation/Fine-tuning
 
