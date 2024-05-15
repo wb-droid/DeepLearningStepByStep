@@ -151,7 +151,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
 7. <b>`Telegram Chat Bot with Local LLM/application`</b>
 
-    Previous developed LLM generation/chat apps are web based. A chat bot in phone app such as Telegram is more accessible and has more options to customize. There are two ways to build such chat bot as shown below. Local LLM/application is easier to deploy. And developer has full control. It's also more secure. On the other hand, online LLM/application is more flexible to use multiple LLMs, and does not require local resource/maintenance. This project will use the first option: Local LLM/application
+    Previous developed LLM generation/chat apps are web based. A chat bot in phone app such as Telegram is more accessible and has more options to customize. There are two ways to build such chat bot as shown below. Local LLM/application is easier to deploy. And developer has full control. It's also more secure. On the other hand, online LLM/application is more flexible to use multiple LLMs, and does not require local resource/maintenance. This project will use the first option: Local LLM/application. Next project will use the second option.
     <br><img src="./TelegramBot/architecture.jpg" height="240">
     
     Local LLM can be setup similar to my previous projects. But this time, I will use [text-generation-webui](https://github.com/oobabooga/text-generation-webui) for its maturity and features. Use the command below to enable API endpoint, and load a quantized Mistral 7B model.
@@ -166,7 +166,20 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     <br><img src="./TelegramBot/screenshot.jpg" height="240">
 
 
-8. <b>`Telegram Chat Bot with Online LLM/Webhook (to do)`</b>
+8. <b>`Telegram Chat Bot with Online LLM/Webhook`</b>
+
+    The previous Telegram Bot needs local resources to run local LLM/application. To save my resources, I also try to build the 2nd option, "Online LLM/Webhook", using only free online resource.
+
+    a) Attempt on Huggingface is only partial successful.
+    
+    The Telegram webhook webserver is setup on Huggingface here: https://wb-droid-telegramwebhook.hf.space/webhook. After it's running, use the following to register this webhook with Telegram:
+    https://api.telegram.org/bot{YOUR_TOKEN}/setWebhook?url={YOUR_WEBHOOK_ENDPOINT}. This webhooks works and can receive Telegram messages. But it cannot sent reply message out because Huggingface does not support connection to api.telegram.org and fails for "No address associated with hostname".
+
+    b) Cloudflare worker works successfully.
+
+    To workaroud the limitation in previous Huggingface webhook, I build another Telegram webhook as Cloudflare worker. This webhook will also call online Mistral LLM endpoint for text generation/chat response. The webhook script can be found [here](./TelegramBot_webhook/worker.js). After register this webhook with Telegram, I can chat with Telegram AI bot without using any local resources, and for free. 
+    <br><img src="./TelegramBot_webhook/webhook_chat.jpg" height="240">
+
 
 ## Pretrained Models Evaluation/Fine-tuning
 
