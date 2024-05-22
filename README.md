@@ -192,6 +192,9 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     
     Training and playback scripts can be found [here](./MyMarioAI/)
 
+    A Huggingface app is built to demo the Mario AI in action. Try it [here](https://huggingface.co/spaces/wb-droid/MyMarioAI2). 
+    <img src="./MyMarioAI/MarioAI_app.jpg" height="120"> 
+
 ## Pretrained Models Evaluation/Fine-tuning
 
 1. <b>`Pet classifier`</b>
