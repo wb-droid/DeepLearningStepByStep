@@ -180,6 +180,17 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     To workaroud the limitation in previous Huggingface webhook, I build another Telegram webhook as Cloudflare worker. This webhook will also call online Mistral LLM endpoint for text generation/chat response. The webhook script can be found [here](./TelegramBot_webhook/worker.js). After register this webhook with Telegram, I can chat with Telegram AI bot without using any local resources, and for free. 
     <br><img src="./TelegramBot_webhook/webhook_chat.jpg" height="240">
 
+9. <b>`MyMarioAI with Deep Reinforcement Learning`</b>
+
+    AI can play games better than human. There are various Mario AI implementations, such as [PPO AI](https://github.com/uvipen/Super-mario-bros-PPO-pytorch) and [DDQN AI](https://github.com/yfeng997/MadMario). I like MadMario's elegant design and implementation, using DDQN (Double Deep Q Network). But when I try to train it, the training is not progressing very well. This diagrom shows that total rewards barely improved after 8,000 episodes of training. 
+    <img src="./MyMarioAI/Slow_training_of_madmario.jpg" height="120"> 
+    The author suggested 40,000 episodes of training loops to properly train the AI. 
+    
+    I made some adjustments: More balanced exploration and exploitation. Reduced burn-in to start training faster. Enhanced learning for Mario death cases. Weighted learning experience to focus more on newer actions/states. Then the training is faster. <img src="./MyMarioAI/Faster_training_of_MyMarioAI.jpg" height="120"> 
+
+    My training result: <img src="./MyMarioAI/movie_full_run.gif" height="120">
+    
+    Training and playback scripts can be found [here](./MyMarioAI/)
 
 ## Pretrained Models Evaluation/Fine-tuning
 
@@ -282,4 +293,5 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     ``` 
     
     Very impressive.
+
 
