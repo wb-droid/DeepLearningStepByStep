@@ -297,4 +297,9 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     
     Very impressive.
 
+6. <b>`Pil-3 multimodal model`</b>
 
+    Phi-3-vision-128k-instruct is a lightweight, general purpose AI that works with both visual and text. It can do chat like other LLM. And it can do image captioning, OCR and other tasks. 
+    With the same <img src="Text_inversion/my_concept/0.jpg" width="32">, question "What is shown in this image?" generates "The image shows a plush toy resembling a monkey with a yellow headband."
+    
+    Details of the evaluations can be found [here](./Phi-3/Phi3.ipynb)
