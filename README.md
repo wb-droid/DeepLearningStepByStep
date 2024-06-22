@@ -195,6 +195,18 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     A Huggingface app is built to demo the Mario AI in action. Try it [here](https://huggingface.co/spaces/wb-droid/MyMarioAI2). 
     <img src="./MyMarioAI/MarioAI_app.jpg" height="240"> 
 
+9. <b>`Variational Autoencoder`</b>
+
+    VAE (Variational Autoencoder) is one of the 3 component models of stable diffusion. After defusion generates new image at latent space, VAE is used to decode the latent image representation to restore the image into original space. 
+
+    VAE has a decoder (down sampler) and encoder (up sampler). I implemented a simple VAE for FashionMNIST dataset. The result below (original image and generated image are side-by-side) shows that the VAE can capture the main features of the original images, and use it to restore a image close to original image. 
+    <img src="./MyVAE/vae_generated_images.jpg" height="240"> 
+
+    The model, training and inference code can be found here:[here](./MyVAE/vae.ipynb)
+
+    A Huggingface app is also built to showcase the VAE. Try it [here](https://huggingface.co/spaces/wb-droid/Variational_Autoencoder). 
+    <img src="./MyVAE/vae_app.jpg" height="240">     
+
 ## Pretrained Models Evaluation/Fine-tuning
 
 1. <b>`Pet classifier`</b>
