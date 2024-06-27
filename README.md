@@ -202,10 +202,23 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     VAE has a decoder (down sampler) and encoder (up sampler). I implemented a simple VAE for FashionMNIST dataset. The result below (original image and generated image are side-by-side) shows that the VAE can capture the main features of the original images, and use it to restore a image close to original image. 
     <img src="./MyVAE/vae_generated_images.jpg" height="240"> 
 
-    The model, training and inference code can be found here:[here](./MyVAE/vae.ipynb)
+    The model, training and inference code can be found [here](./MyVAE/vae.ipynb).
 
     A Huggingface app is also built to showcase the VAE. Try it [here](https://huggingface.co/spaces/wb-droid/Variational_Autoencoder). 
     <img src="./MyVAE/vae_app.jpg" height="240">     
+
+9. <b>`UNet with DDPM`</b>
+
+    UNet with DDPM (Denoising Diffusion Probilistic Model) is another one of the 3 component models of stable diffusion. UNet is trained with noisified images to predict the noise. Then the trained UNet is used for image generation. It goes through 1000 time steps of denoising process to generate a new image.
+
+    I implemented a simple UNet by UNet2DModel. Trained it with FashionMNIST dataset. I tried DDPMScheduler but could not make it generate correct image. So I used fastai's DDPM sampler implementation instead. The result below shows the DDPM denoising process that removes noises step by step to generate the final image.
+
+    <img src="./UNet_DPPM/denoising_process.jpg" height="240"> 
+
+    The model, training and inference code can be found [here](./UNet_DPPM/MyUNet2_complete.ipynb).
+
+    A Huggingface app is also built to showcase the VAE. Try it [here](https://huggingface.co/spaces/wb-droid/UNet_DPPM). 
+    <img src="./UNet_DPPM/UNet_DPPM_app.jpg" height="240">     
 
 ## Pretrained Models Evaluation/Fine-tuning
 
