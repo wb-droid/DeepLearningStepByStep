@@ -217,7 +217,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     The model, training and inference code can be found [here](./UNet_DPPM/MyUNet2_complete.ipynb).
 
-    A Huggingface app is also built to showcase the VAE. Try it [here](https://huggingface.co/spaces/wb-droid/UNet_DPPM). 
+    A Huggingface app is also built to showcase the diffusion process. Try it [here](https://huggingface.co/spaces/wb-droid/UNet_DPPM). 
     <img src="./UNet_DPPM/UNet_DPPM_app.jpg" height="240">     
 
 ## Pretrained Models Evaluation/Fine-tuning
