@@ -195,7 +195,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     A Huggingface app is built to demo the Mario AI in action. Try it [here](https://huggingface.co/spaces/wb-droid/MyMarioAI2). 
     <img src="./MyMarioAI/MarioAI_app.jpg" height="240"> 
 
-9. <b>`Variational Autoencoder`</b>
+10. <b>`Variational Autoencoder`</b>
 
     VAE (Variational Autoencoder) is one of the 3 component models of stable diffusion. After defusion generates new image at latent space, VAE is used to decode the latent image representation to restore the image into original space. 
 
@@ -207,7 +207,7 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     A Huggingface app is also built to showcase the VAE. Try it [here](https://huggingface.co/spaces/wb-droid/Variational_Autoencoder). 
     <img src="./MyVAE/vae_app.jpg" height="240">     
 
-9. <b>`UNet with DDPM`</b>
+11. <b>`UNet with DDPM`</b>
 
     UNet with DDPM (Denoising Diffusion Probilistic Model) is another one of the 3 component models of stable diffusion. UNet is trained with noisified images to predict the noise. Then the trained UNet is used for image generation. It goes through 1000 time steps of denoising process to generate a new image.
 
@@ -219,6 +219,17 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     A Huggingface app is also built to showcase the diffusion process. Try it [here](https://huggingface.co/spaces/wb-droid/UNet_DPPM). 
     <img src="./UNet_DPPM/UNet_DPPM_app.jpg" height="240">     
+
+12. <b>`CLIP model`</b>
+
+    CLIP (Constrasitive Language-Image Pretraining) is the 3rd of the 3 component models of stable diffusion. CLIP is used to align text embedding and image embedding at latent space. CLIP can perform zero shot image classification/image captioning. It's also used to generate text/image embedding that can be used to guide image generation in diffusion. 
+
+    I implemented a simple CLIP model. The image encoder reuses the VAE encoder implemented earlier. The text encoder is a label class embedding. Trained it with FashionMNIST dataset. The zero-shot image classification achived >90% accuracy.
+
+    The model, training and inference code can be found [here](./MyCLIP/MyCLIP.ipynb).
+
+    [To Do]
+    To build an app to showcase the CLIP model. 
 
 ## Pretrained Models Evaluation/Fine-tuning
 
