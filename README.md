@@ -228,8 +228,8 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     The model, training and inference code can be found [here](./MyCLIP/MyCLIP.ipynb).
 
-    [To Do]
-    To build an app to showcase the CLIP model. 
+    A Huggingface app is built to showcase the CLIP model. Try it [here](https://huggingface.co/spaces/wb-droid/CLIP_Model). 
+    <img src="./MyCLIP/CLIP_app.jpg" height="240">  
 
 ## Pretrained Models Evaluation/Fine-tuning
 
