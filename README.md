@@ -231,6 +231,23 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     A Huggingface app is built to showcase the CLIP model. Try it [here](https://huggingface.co/spaces/wb-droid/CLIP_Model). 
     <img src="./MyCLIP/CLIP_app.jpg" height="240">  
 
+13. <b>`Conditional Diffusion with DDPM/DDIM`</b>
+
+    The previous unconditional diffusion randomaly generates sample from the UNet model's learned distribution. A more useful thing to do is to generate a targeted image that has certain properties or concepts. Conditional diffusion can generated this kind of image, guided by the conditional embedding what is an additonal input to the model.
+
+    I implemented such a model with UNet2DConditionModel. Trained it with FashionMNIST dataset. The conditional embedding is simply tokenizing the image label (as label index), then go through an embedding layer, so that the model can generate certain type of images dictated by the input. 
+
+    DDIM (Denoising Diffusion Implicit Model) is more efficient way to generate images faster than DDPM.  Both DDPM and DDIM generation of "T-Shirt" results are shown below.
+
+    <img src="./ConditionalDiffusion/DDPM_generated.jpg" height="240"> 
+
+    <img src="./ConditionalDiffusion/DDIM_generated.jpg" height="240"> 
+
+    The model, training and inference code can be found [here](./ConditionalDiffusion/ConditionalDiffusion.ipynb).
+
+    [To Do]
+    Build a Huggingface app to showcase the model. 
+
 ## Pretrained Models Evaluation/Fine-tuning
 
 1. <b>`Pet classifier`</b>
