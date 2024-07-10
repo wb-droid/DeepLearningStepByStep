@@ -245,8 +245,12 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     The model, training and inference code can be found [here](./ConditionalDiffusion/ConditionalDiffusion.ipynb).
 
-    [To Do]
-    Build a Huggingface app to showcase the model. 
+    Another interesting usage of this model is to conditon on multiple features, to generate images that has multiple properties. For example, a "Bag" that looks a bit like "T-Shirt" can be generated with [this](./ConditionalDiffusion/ConditionalDiffusion_multi_features.ipynb), as shown below.
+    <img src="./ConditionalDiffusion/bag_t_shirt.jpg" height="240"> 
+
+    A Huggingface app is built to showcase the conditional diffusion model. Try it [here](https://huggingface.co/spaces/wb-droid/Conditional_Diffusion). 
+    <img src="./ConditionalDiffusion/app.jpg" height="240">  
+
 
 ## Pretrained Models Evaluation/Fine-tuning
 
