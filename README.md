@@ -251,6 +251,13 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     A Huggingface app is built to showcase the conditional diffusion model. Try it [here](https://huggingface.co/spaces/wb-droid/Conditional_Diffusion). 
     <img src="./ConditionalDiffusion/app.jpg" height="240">  
 
+14. <b>`Vision Transformer`</b>
+
+    ViT(Vision Transformer) has been proven to achieve State-Of-The-Art performace as CNN. It re-uses transformer architecture originally used for NLP. I implemented a ViT from scratch. Trained it with FashionMNIST dataset and achieved 90% accuracy in image classification after 10 epochs. 
+
+    The model, training and inference code can be found [here](./MyViT/MyViT.ipynb).
+
+    To Do: A Huggingface app to showcase the model.
 
 ## Pretrained Models Evaluation/Fine-tuning
 
