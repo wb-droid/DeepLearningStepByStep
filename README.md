@@ -253,11 +253,14 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
 14. <b>`Vision Transformer`</b>
 
-    ViT(Vision Transformer) has been proven to achieve State-Of-The-Art performace as CNN. It re-uses transformer architecture originally used for NLP. I implemented a ViT from scratch. Trained it with FashionMNIST dataset and achieved 90% accuracy in image classification after 10 epochs. 
+    ViT(Vision Transformer) has been proven to achieve State-Of-The-Art performace as CNN. It re-uses transformer architecture originally used for NLP. I implemented a ViT from scratch, following the paper ["TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE"](https://arxiv.org/pdf/2010.11929) and its model <img src="./MyViT/ViT_Model.jpg" height="240">. 
+    
+    The main difference from GPT (such as myGPT above) is that the inputs are sequence of patches, instead of sequence of tokens. Also, the attention mask is not needed since all relations between patches should be discovered. Lastly, the CLS-token is replaced by mean pooling of the patches in MyViT, for classification. I trained MyViT with FashionMNIST dataset and achieved 90% accuracy in image classification after 10 epochs. 
 
     The model, training and inference code can be found [here](./MyViT/MyViT.ipynb).
 
-    To Do: A Huggingface app to showcase the model.
+    A Huggingface app is built to showcase the ViT model. Try it [here](https://huggingface.co/spaces/wb-droid/Vision_Transformer). 
+    <img src="./MyViT/ViT_app.jpg" height="240">  
 
 ## Pretrained Models Evaluation/Fine-tuning
 
