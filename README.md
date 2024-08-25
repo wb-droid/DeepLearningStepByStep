@@ -262,6 +262,19 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     A Huggingface app is built to showcase the ViT model. Try it [here](https://huggingface.co/spaces/wb-droid/Vision_Transformer). 
     <img src="./MyViT/ViT_app.jpg" height="240">  
 
+15. <b>`Deep Learning Recommendation Model`</b>
+
+    Facebook (Meta) AI's [DLRM (Deep Learning Recommendation Model)](https://arxiv.org/pdf/1906.00091) is widely used for recommentation system. It's improved on collaborative filtering, to handle multiple sparse (categorical) features and dense (continuous) features interacting with each other. I implemented a DLRM from scratch following the paper and its model below. 
+    
+    <img src="./MyDLRM/model.jpg" height="120"> 
+    
+    The model is trained with Movielens database. 3 sparse features (user, movie, genre) and 1 dense feature (timestamp) is used as input, to predict the movie ratings. Trained for 10 epochs before the model started to overfit. 
+
+    The model, training and inference code can be found [here](./MyDLRM/MyDLRM.ipynb).
+
+    An additional feature of the model is that both model parallel (for embedding) and data parallel (for mlp) and be applied on different part of the model.
+
+
 ## Pretrained Models Evaluation/Fine-tuning
 
 1. <b>`Pet classifier`</b>
