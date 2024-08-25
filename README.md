@@ -266,13 +266,13 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     Facebook (Meta) AI's [DLRM (Deep Learning Recommendation Model)](https://arxiv.org/pdf/1906.00091) is widely used for recommentation system. It's improved on collaborative filtering, to handle multiple sparse (categorical) features and dense (continuous) features interacting with each other. I implemented a DLRM from scratch following the paper and its model below. 
     
-    <img src="./MyDLRM/model.jpg" height="120"> 
+    <img src="./MyDLRM/model.jpg" height="180"> 
     
     The model is trained with Movielens database. 3 sparse features (user, movie, genre) and 1 dense feature (timestamp) is used as input, to predict the movie ratings. Trained for 10 epochs before the model started to overfit. 
 
     The model, training and inference code can be found [here](./MyDLRM/MyDLRM.ipynb).
 
-    An additional feature of the model is that both model parallel (for embedding) and data parallel (for mlp) and be applied on different part of the model.
+    An additional feature of the model is that both model parallel (for embedding) and data parallel (for mlp) can be applied on different part of the model.
 
 
 ## Pretrained Models Evaluation/Fine-tuning
