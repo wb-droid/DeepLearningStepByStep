@@ -274,6 +274,16 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     An additional feature of the model is that both model parallel (for embedding) and data parallel (for mlp) can be applied on different part of the model.
 
+15. <b>`MaskNet Model`</b>
+
+    [MaskNet](https://arxiv.org/pdf/2102.07619.pdf) is another recommendation model that is widely used for CTR ranking. For example, Twitter (X) uses Parallel MaskNet for its Heavy Ranker to rank tweets. Alibaba also includes MaskNet in its EasyRec recommendation framework. MaskNet has a serial variation and a parallel variation. The Parallel MaskNet is also a mixture of multiple experts (MMoE) design, where each MaskBlock is an expert paying attention to specific kind of important features or feature interactions. I implemented a Parallel MaskNet from scratch following the paper and its model below. 
+    
+    <img src="./MyMaskNet/ParallelMaskNet.jpg" height="180"> 
+    
+    The model is trained with Movielens database. 3 sparse features (user, movie, genre) are used as input, to predict the movie ratings. Trained for 10 epochs before the model started to overfit. 
+
+    The model, training and inference code can be found [here](./MyMaskNet/MyMaskNet.ipynb).
+
 
 ## Pretrained Models Evaluation/Fine-tuning
 
