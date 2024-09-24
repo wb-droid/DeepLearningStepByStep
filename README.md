@@ -280,10 +280,20 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
     
     <img src="./MyMaskNet/ParallelMaskNet.jpg" height="180"> 
     
-    The model is trained with Movielens database. 3 sparse features (user, movie, genre) are used as input, to predict the movie ratings. Trained for 10 epochs before the model started to overfit. 
+    The model is trained with Movielens dataset. 3 sparse features (user, movie, genre) are used as input, to predict the movie ratings. Trained for 10 epochs before the model started to overfit. 
 
     The model, training and inference code can be found [here](./MyMaskNet/MyMaskNet.ipynb).
 
+16. <b>`Knowledge Graph Embedding`</b>
+
+    Besides token/text/sentence embedding, image embedding and feature embedding, Knowledge Graph Embedding (KGE) is another interesting model that is used widely in prediction and recommendation tasks.
+    [TwHIN](https://arxiv.org/pdf/2202.05387) is Twitter (X)'s production KGE model to capture Twitter information network's entities and relations/interactions, as illustrated below. As the embedding table is huge, torchrec's EmbeddingBagCollection is used to support DistributedModelParallel. One special new design in the model is that the scoring function for logits is `((source_embedding + relation_embedding) * target_embedding).sum(-1)`. Another special design is the negative sampling used to create fake negative labels for training -- "Negative edges are sampled by corrupting positive edges via replacing either the source or target entity".
+    
+    <img src="./MyKGE/information_network.jpg" height="180"> 
+    
+    I implemented the KGE model following the paper. The model is trained with TwitterFaveGraph dataset. Source entity is user. Target entity is tweet. Relation is favorate.  
+
+    The model, training and inference code can be found [here](./MyKGE/MyKGE.ipynb).
 
 ## Pretrained Models Evaluation/Fine-tuning
 
