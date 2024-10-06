@@ -295,6 +295,14 @@ There are so many ML concepts, designs and models to learn and try. I hope to gr
 
     The model, training and inference code can be found [here](./MyKGE/MyKGE.ipynb).
 
+17. <b>`Code Generator`</b>
+
+    One very useful application of AI model is for automatic code generation. Since programming language is also a language, NLP model can be used for code generation too. This time, I use huggingface transformer framework to save efforts and reuse pre-trained GPT2 models. 
+
+    The target is a python code generator. First thing is to build/train a python code tokenizer, since it's more efficient than the pre-trained GPT2 tokenizer in handling python code. The "code_search_net" dataset is used to fine-tune the tokenizer. Next thing is to fine-tune the pretrained GPT2 model. "codeparrot-ds" dataset is used for the training. The dataset's python code is first chunked and tokenized with the fine-tuned python tokenizer, then feed into the GPT2 model to fine-tune it. The resulting model can then be used to generate python code base on input prompt code/comments.
+    
+    The model, training and inference code can be found [here](./CodeGenerator/MyCodeGenerator.ipynb).
+
 ## Pretrained Models Evaluation/Fine-tuning
 
 1. <b>`Pet classifier`</b>
